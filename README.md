@@ -1,5 +1,5 @@
 # hashService
-A web service thats accepts POST requests and returns a the SHA512 hash of a string.
+A web service thats accepts POST requests and returns the base64 encoded SHA512 hash of a string.
 
 
 ## Installing

@@ -7,14 +7,14 @@ go get github.com/sullirobert/hashService
 
 
 ## Configuring Port
-uses port 9999 by default
-flags:
-    -port sets the listen port
+uses port 9999 by default<br/>
+flags:<br/>
+    -port sets the listen port<br/>
 
 
 ## Example
-go install github.com/sullirobert/hashService
-hashService -port 8080
-
-send a request:
+go install github.com/sullirobert/hashService<br/>
+hashService -port 8080<br/>
+<br/>
+send a request:<br/>
 curl --data "password=angryMonkey" http://localhost:8080

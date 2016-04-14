@@ -22,11 +22,10 @@ func main() {
 	log.Fatal(s.ListenAndServe())
 }
 
-type hashStringhandler struct {
-	counter int
-}
+type hashStringhandler struct{}
 
 func (h hashStringhandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	log.Printf("request recieved")
 	time.Sleep(time.Second * 5)
 	pw := r.FormValue("password")
 	if pw == "" {
@@ -35,11 +34,11 @@ func (h hashStringhandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	hashedPwsha := EncodedHash([]byte(pw))
-	fmt.Println(len(pw))
+	log.Printf("returning string: %s", hashedPwsha)
 	w.Write([]byte(hashedPwsha))
 }
 
-// EncodedHash returns base 64 encoded hash of a string
+// EncodedHash returns encoded SHA512 hash of a string
 func EncodedHash(value []byte) string {
 	hasher := sha512.New()
 	hasher.Write(value)

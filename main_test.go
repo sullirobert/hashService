@@ -11,7 +11,7 @@ import (
 var testVal = "angryMonkey"
 var expectedResult = "ZEHhWB65gUlzdVwtDQArEyx+KVLzp/aTaRaPlBzYRIFj6vjFdqEb0Q5B8zVKCZ0vKbZPZklJz0Fd7su2A+gf7Q=="
 
-func Test_EncodedHash_returns_normal_string(t *testing.T) {
+func Test_EncodedHash_returns_correct_result(t *testing.T) {
 	hashedBase64 := EncodedHash([]byte(testVal))
 	if hashedBase64 != expectedResult {
 		t.Error("EncodedHash output is incorrect")
@@ -67,7 +67,6 @@ func Test_hashStringhandler_returns_after_5_seconds(t *testing.T) {
 	handler := hashStringhandler{}
 	defer TimeTrack(t, time.Now(), "delay test")
 	handler.ServeHTTP(w, r)
-
 }
 
 func TimeTrack(t *testing.T, start time.Time, name string) {
